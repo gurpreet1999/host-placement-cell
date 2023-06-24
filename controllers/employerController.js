@@ -36,14 +36,21 @@ const signin = async (req, res) => {
 
 //signup functionality ...creating user in database
 async function signup(req, res) {
+
+  console.log("hellloo")
   try {
     const { name, email, password } = req.body;
+    console.log(name,email,password)
  if(!name,  !email, !password){
     req.flash("error", "all field are required ");
     return res.redirect("back");
  }
 
-let employe=EMPLOYERMODEL.findOne({ email:email })
+console.log("jddhdh")
+
+let employe=await EMPLOYERMODEL.findOne({ email:email })
+
+console.log(employe)
 
 if(employe){
     req.flash("error", "user already exist with email id ");
@@ -59,7 +66,7 @@ if(employe){
 
 if(employer){
     req.flash("success", "Account created!");
-    return res.redirect("/");
+    return res.redirect("/v1/");
 }
 } catch (err) {
     consle.log(err);

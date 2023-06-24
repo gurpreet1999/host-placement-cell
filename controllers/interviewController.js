@@ -92,16 +92,21 @@ async function addStudentToInterview(req, res) {
           "success",
           `${student.name} enrolled in ${interview.company} interview!`
         );
-     
+        return res.redirect('back')
       }
 
-      req.flash("error", "Student not found!");
-      return res.redirect('back')
+      else{
+        req.flash("error", "Student not found!");
+        return res.redirect('back')
+      }
+     
     
     }
-
-    req.flash("error", "interview not found!");
-    return res.redirect('back')
+else{
+  req.flash("error", "interview not found!");
+return res.redirect('back')
+}
+  
    
   } catch (err) {
     console.log(err);
@@ -172,6 +177,7 @@ async function deleteInterview(req, res) {
     await interview.deleteOne();
     req.flash("success",
     `Successfully deleted the interview!`);
+    return res.redirect("back")
   }
   catch(err){
 console.log(err)

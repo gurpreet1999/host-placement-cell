@@ -6,7 +6,7 @@
     <div class="header">
       <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;"  >  
         <div class="container-fluid">
-          <a class="navbar-brand mx-4" href="/dashboard">
+          <a class="navbar-brand mx-4" href="/v1//dashboard">
             Placement Cell</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,7 +16,7 @@
             <% if (locals.user) {%>
               <ul class="nav">
                 <li class="nav-item mx-4">
-                  <a class="navbar-brand" href="/dashboard">Home</a>
+                  <a class="navbar-brand" aria-current="page"  href="/v1//dashboard">Home</a>
                 </li>
                 <li class="nav-item mx-4">
                   <a class="navbar-brand" aria-current="page" href="/v1/student/addstudent">Manage Student</a>
@@ -31,8 +31,8 @@
                 </a>
                 <a class="btn btn-dark mx-1" href="/profile">
                   <i class="fa-regular fa-user"></i>
-                  <%= user.username %>
-                  rahul
+                  <%= user.name %>
+                 
                 </a>
                 <a class="btn btn-dark mx-1" href="/v1/logoutuser">Sign Out</a>
               </form>
