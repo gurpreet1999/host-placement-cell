@@ -13,6 +13,9 @@ const MongoStore = require("connect-mongo");
 const flash = require("connect-flash");
 const customFlash = require("./middleware/flashMiddleware.js");
 
+const PORT=process.env.PORT || 4000
+
+
 const app = express();
 //databse connection
 dbConnection();
@@ -67,6 +70,6 @@ app.use(customFlash.setFlash);
 
 app.use("/v1", indexRouter);
 
-app.listen(4000, () => {
+app.listen(PORT, () => {
   console.log("server is running fine");
 });
