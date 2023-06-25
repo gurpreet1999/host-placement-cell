@@ -6,6 +6,7 @@ const {
   showStudentAddPage,
   showEditStudentPage,
 } = require("../controllers/studentController");
+const { downloadCSVReport } = require("../controllers/csvController");
 
 const studentRoute = express.Router();
 
@@ -17,5 +18,6 @@ studentRoute.get("/edit/:id", showEditStudentPage);
 studentRoute.post("/createstudent", addStudent);
 studentRoute.post("/update/:id", updateStudent);
 studentRoute.get("/delete/:studentId", deleteStudent);
+studentRoute.get("/download", downloadCSVReport);
 
 module.exports = studentRoute;
